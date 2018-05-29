@@ -15,14 +15,14 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 public class WebMvcConfigure implements WebMvcConfigurer {
 
-    @Bean
-    public ViewResolver viewResolver() {
-        InternalResourceViewResolver resolver
-                = new InternalResourceViewResolver();
-        resolver.setPrefix("/static/");
-        resolver.setSuffix(".jsp");
-        return resolver;
-    }
+//    @Bean
+//    public ViewResolver viewResolver() {
+//        InternalResourceViewResolver resolver
+//                = new InternalResourceViewResolver();
+//        resolver.setPrefix("templates");
+//        resolver.setSuffix("html");
+//        return resolver;
+//    }
 
     @Override
     public void configureDefaultServletHandling(
@@ -33,7 +33,7 @@ public class WebMvcConfigure implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**")
-                .addResourceLocations("/resources/").setCachePeriod(3600)
+                .addResourceLocations("/resources/")
                 .resourceChain(true).addResolver(new PathResourceResolver());
     }
 }
